@@ -27,6 +27,9 @@ data = [
     {"category": "berries", "words": berries}
 ]
 
+# Delete the database first
+collection.delete_many({})
+
 # Insert into MongoDB
 collection.insert_many(data)
 
