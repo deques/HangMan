@@ -5,10 +5,17 @@ For the moment only 20 words are in the database
 
 ## Prerequisites
 
-1. Install MongoDB from https://www.mongodb.com/try/download/community
-2. Open Terminal
-3. Install pymongo using command `pip install pymongo`
-4. Run `py ./data/generate_words.py` to create a database and insert words into the database
+### MongoDB
+
+1. Open `config.py` and change the `db` line to `mongo`
+2. Install MongoDB from https://www.mongodb.com/try/download/community
+3. Open Terminal
+4. Install pymongo using command `pip install pymongo`
+5. Run `py ./data/generate_words.py` to create a database and insert words into the database
+
+### JSON
+
+1. Open `config.py` and change the `db` line to `json`
 
 ## How to play
 
