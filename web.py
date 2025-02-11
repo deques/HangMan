@@ -19,6 +19,7 @@ def new_word():
   session['hide_word'] = hide_word
   session['won'] = False
   session['lost'] = False
+  session['state'] = "none"
 
   return guess_word
 
@@ -31,6 +32,7 @@ def get_game_data():
   game_data.append(session['hide_word'])
   game_data.append(session['won'])
   game_data.append(session['lost'])
+  game_data.append(session['state'])
 
 def letter_guess(letter):
   word = session['word']
@@ -46,12 +48,13 @@ def letter_guess(letter):
       if position == -1:
         break
       hide_word = hide_word[:position] + letter + hide_word[position + 1:]
-
+      session['state'] = "correct"
       if "_" not in hide_word:
         session['won'] = True
   elif letter not in guesses:
     guesses.append(letter)
     num_incorrect_guesses +=1
+    session['state'] = "wrong"
 
   if num_incorrect_guesses == 10:
     session['lost'] = True
@@ -63,6 +66,7 @@ def letter_guess(letter):
 @app.route("/", methods=["POST", "GET"])
 def home():
   global game_data
+  session['state'] = "none"
   if request.method == "POST":
     # Get new word
     if "new_word" in request.form:

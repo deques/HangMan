@@ -32,6 +32,8 @@
         {%
         if
         data[5]
+        or
+        data[4]
         %}disabled{%
         endif
         %}
@@ -50,13 +52,22 @@
       {{letter}}
       {% endfor %}
     </h1>
+
+    {% if data[6] == "correct" %}
+    <h2 class="text-success">Correct guess!</h2>
+    {% endif %}
+
+    {% if data[6] == "wrong" %}
+    <h2 class="text-danger">Wrong guess!</h2>
+    {% endif %}
+
     {% if data[4] == True %}
-    <h2 class="text-danger">You have won</h2>
+    <h2 class="text-success">You have won</h2>
     {% endif %}
 
     {% if data[5] == True %}
     <h2 class="text-danger">You have lost</h2>
-    <p>The word was {{ data[0] }}</p>
+    <h3>The word was {{ data[0] }}</h3>
     {% endif %}
 
     <h3>Incorrect guesses: {{data[1]}}</h3>
