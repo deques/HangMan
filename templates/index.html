@@ -1,11 +1,54 @@
 {% extends "base.html" %}
-{% block title %} Home asdPage{% endblock %}
+{% block title %} Hangman - Guess the word{% endblock %}
 
 {% block content %}
 
-<div class="container">
-  <h1>Test</h1>
+<h1>Hangman - Guess the word</h1>
 
+
+<div class="row">
+  <div class="col-2 mb-3">
+    <form
+      action="#"
+      method="post"
+    >
+
+      <label
+        for="letter"
+        class="m-1"
+      >Enter a letter</label>
+
+      <input
+        type="text"
+        name="letter"
+        id="letter"
+        class="form-control m-1"
+        autocomplete="off"
+        maxlength="1"
+      >
+      <button
+        type="submit"
+        class="btn btn-primary m-1"
+        name="guess"
+      >Submit</button>
+      <button
+        type="submit"
+        class="btn btn-primary m-1"
+        name="new_word"
+      >New word</button>
+    </form>
+  </div>
+  <div class="col-10">
+    <h1 class="display-1">
+      {% print(data) %}<br>
+
+      {% for letter in data[3] %}
+      {{letter}}
+      {% endfor %}
+    </h1>
+
+    <h3>Incorrect guesses: {{data[1]}}</h3>
+    <h4>You can only guess incorrectly 10 times</h3>
+  </div>
 </div>
-
 {% endblock %}
