@@ -5,7 +5,6 @@
 
 <h1>Hangman - Guess the word</h1>
 
-
 <div class="row">
   <div class="col-2 mb-3">
     <form
@@ -30,6 +29,12 @@
         type="submit"
         class="btn btn-primary m-1"
         name="guess"
+        {%
+        if
+        data[5]
+        %}disabled{%
+        endif
+        %}
       >Submit</button>
       <button
         type="submit"
@@ -40,14 +45,25 @@
   </div>
   <div class="col-10">
     <h1 class="display-1">
-      {% print(data) %}<br>
 
       {% for letter in data[3] %}
       {{letter}}
       {% endfor %}
     </h1>
+    {% if data[4] == True %}
+    <h2 class="text-danger">You have won</h2>
+    {% endif %}
+
+    {% if data[5] == True %}
+    <h2 class="text-danger">You have lost</h2>
+    <p>The word was {{ data[0] }}</p>
+    {% endif %}
 
     <h3>Incorrect guesses: {{data[1]}}</h3>
+    <p>Your guesses: {% for letter in data[2] %}
+      {{letter}}
+      {% endfor %}
+    </p>
     <h4>You can only guess incorrectly 10 times</h3>
   </div>
 </div>
