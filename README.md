@@ -19,5 +19,12 @@ For the moment only 20 words are in the database
 
 ## How to play
 
+### Terminal version
+
 1. Open terminal
 2. Run with `py ./main.py`
+
+### Web version
+
+1. Open terminal
+2. Run with `py ./web.py`
