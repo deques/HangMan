@@ -17,6 +17,9 @@ For the moment only 20 words are in the database
 
 1. Open `config.py` and change the `db` line to `json`
 
+### Web version 
+1. Install flask using command `pip install flask`
+
 ## How to play
 
 ### Terminal version
