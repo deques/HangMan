@@ -55,6 +55,8 @@ def letter_guess(letter):
     guesses.append(letter)
     num_incorrect_guesses +=1
     session['state'] = "wrong"
+  elif letter in guesses:
+    session['state'] = "already_guessed"
 
   if num_incorrect_guesses == 10:
     session['lost'] = True

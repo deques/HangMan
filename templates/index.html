@@ -61,6 +61,11 @@
     <h2 class="text-danger">Wrong guess!</h2>
     {% endif %}
 
+    {% if data[6] == "already_guessed" %}
+    <h2 class="text-danger">You already guessed</h2>
+    {% endif %}
+
+
     {% if data[4] == True %}
     <h2 class="text-success">You have won</h2>
     {% endif %}
